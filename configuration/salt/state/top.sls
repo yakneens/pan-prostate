@@ -19,6 +19,7 @@ base:
   'G@roles:worker':
     - dnsmasq.gnos-share
     - dnsmasq.pan-prostate-share
+    - nfs-shares
     - celery
     - airflow
     - airflow.load-workflows
@@ -29,6 +30,7 @@ base:
   'G@roles:tracker':
     - dnsmasq.gnos-share
     - dnsmasq.pan-prostate-share
+    - nfs-shares
     - run-tracking-db.set_db_url
     - celery
     - airflow
