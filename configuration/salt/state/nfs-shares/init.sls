@@ -14,15 +14,21 @@ update_resolv_conf_local_dns:
     - name: /etc/resolv.conf
     - text:
       - nameserver 127.0.0.1
+    - require:
+      - run_dhclient
       
 update_resolv_conf_google_dns:
   file.prepend:
     - name: /etc/resolv.conf
     - text:
       - nameserver 8.8.8.8
+    - require:
+      - run_dhclient
       
 mount_shares:
   cmd.run:
     - name: mount -a
+    - require:
+      - update_resolv_conf_local_dns
 
       
