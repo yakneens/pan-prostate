@@ -8,11 +8,12 @@ run_dhclient:
   cmd.run:
     - name: dhclient
     
-/etc/resolv.conf:
-  file.prepend:
-    - text:
-      - nameserver 127.0.0.1
       
 mount_shares:
   cmd.run:
     - name: mount -a
+  require:
+    - sls: dnsmasq.local-name-server
+    
+include:
+  - dnsmasq.local-name-server
