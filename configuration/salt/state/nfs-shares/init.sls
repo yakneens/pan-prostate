@@ -9,12 +9,20 @@ run_dhclient:
     - name: dhclient
     
       
-mount_shares:
-  cmd.run:
-    - name: mount -a
-
-update_resolv_conf:
+update_resolv_conf_local_dns:
   file.prepend:
     - name: /etc/resolv.conf
     - text:
       - nameserver 127.0.0.1
+      
+update_resolv_conf_google_dns:
+  file.prepend:
+    - name: /etc/resolv.conf
+    - text:
+      - nameserver 8.8.8.8
+      
+mount_shares:
+  cmd.run:
+    - name: mount -a
+
+      
