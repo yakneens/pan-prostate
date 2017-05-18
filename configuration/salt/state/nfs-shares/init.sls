@@ -12,8 +12,9 @@ run_dhclient:
 mount_shares:
   cmd.run:
     - name: mount -a
-  require:
-    - sls: dnsmasq.local-name-server
-    
-include:
-  - dnsmasq.local-name-server
+
+update_resolv_conf:
+  file.prepend:
+    - name: /etc/resolv.conf
+    - text:
+      - nameserver 127.0.0.1
