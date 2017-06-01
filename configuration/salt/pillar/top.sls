@@ -6,6 +6,6 @@ base:
   'G@roles:worker':
     - test-data
     - pcawg-data
-  
-#  'G@roles:tracker':
-#    - postgres
+    - run-tracking-db
+  'G@roles:tracker':
+    - run-tracking-db
