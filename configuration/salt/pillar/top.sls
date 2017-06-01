@@ -17,5 +17,5 @@ base:
     - airflow
   'G@roles:monitoring-server':
     - grafana
-  'G@roles:monitoring-server':
+  'G@roles:db-server':
     - grafana
